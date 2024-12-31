@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>During 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  </head>
+  <body
+    style="
+      background-image: url(https://images.unsplash.com/photo-1488831861984-179da3647265?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    "
+    class="flex justify-center h-screen items-center"
+  >
+    <div
+      class="bg-white border px-10 py-8 border-4 border-gray-300 shadow-lg shadow-green-300 rounded-xl text-center animate__animated animate__backInDown m-8 w-80"
+      id="kartu"
+    >
+      <h1 class="text-3xl">Halo Anggun</h1>
+      <h1
+        class="text-4xl text-emerald-500 font-bold animate__animated animate__pulse animate__infinite"
+      >
+        It's August
+      </h1>
+      <button
+        class="p-2 bg-emerald-600 text-white rounded mt-5 hover:bg-emerald-900 transition ease-in w-full animate__animated animate__delay-1s animate__tada"
+        onclick="handleButton()"
+      >
+        Klik Disini Yaa!
+      </button>
+    </div>
+
+    <!-- Elemen audio untuk lagu -->
+    <audio id="myAudio">
+      <source src="song/january.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <script>
+      const messages = [
+        `Haloo Anggun, gimana kabarnya? 👋🏼👋🏼 <br> aku berharap semoga kamu sehat selalu yaaa`,
+        `sebelumnya kita udah bahas people pleasure <br> dengan kamu stop menyenangkan orang lain, akan turun ekspektasi orang dan ketertarikan orang ke dirimu sendiri`,
+        `apakah itu bagus? menurutku iya <br> karena apa? karena kita bisa menjadi diri sendiri tanpa ada campur tangan orang lain <br> benar apa benar`,
+        `dan kalau orang udah ga berekspektasi ke kita apa yang harusnya kita lakukan? sedih? galau? kesepian? tentu tidak dongg`,
+        `yang perlu kita lakukan cuma, berprasangka baik <br> kita gatau apa yang sudah direncanakan buat kita kan ....`,
+        `sepengalamanku ya <br> aku pernah stop membuat orang berekspektasi ke aku <br> mungkin iya aku jadi sendiri, mungkin benar aku jadi kesepian <br> tapi dengan berprasangka barik ...`,
+        `ternyata ada hikmat dari aku yang menjadi sendiri dan kesepian, <br> aku jadi lebih banyak ngerjain tugas sendiri, lebih banyak belajar hal baru, lebih bergantung ke diri sendiri`,
+        `intinya adalah, selama kita mau menjadi lebih baik semua pasti akan ada jalan dan pembelajarannya`,
+        `syaa di september`,
+      ];
+
+      let currentIndex = 0;
+
+      function showBirthdayMessage() {
+        const kartu = document.getElementById("kartu");
+        kartu.innerHTML = `
+    <h1 class="font-semibold text-wrap animate__animated animate__zoomIn">
+        ${messages[currentIndex]}
+    </h1>
+    <h2 class="mt-3 animate__animated animate__fadeIn">
+        - Dari : Codename X218113 -
+    </h2>
+    <button
+        class="p-2 bg-slate-600 text-white rounded mt-5 hover:bg-slate-900 transition ease-in w-full animate__animated animate__delay-1s animate__tada"
+        onclick="nextMessage()"
+    >
+        Next
+    </button>
+  `;
+        currentIndex++;
+        playSong(); // Memutar lagu setiap kali pesan ditampilkan
+      }
+
+      function nextMessage() {
+        if (currentIndex < messages.length) {
+          showBirthdayMessage();
+        } else {
+          const kartu = document.getElementById("kartu");
+          kartu.innerHTML = `
+      <h1 class="font-semibold text-wrap animate__animated animate__zoomIn">
+          Lagu buat kamu bulan ini   : <br><a href="https://open.spotify.com/track/3CBxVM0zGj41BQtE6m7gwb?si=OxAPSpZcSvey6g-pk7geSg" target="_blank">Klik disini</a> <br><br>
+          Video buat kamu bulan ini  : <br><a href="https://vt.tiktok.com/ZS6SGGyvF/" target="_blank">Klik disini</a><br><br>
+          Kamu bisa kasih respon   : <br><a href="https://forms.gle/5JfduKtVsRiLS3Ht7" target="_blank">Klik disini</a>
+      </h1>
+    `;
+        }
+      }
+
+      function playSong() {
+        var audio = document.getElementById("myAudio");
+        audio.play().catch(function (error) {
+          console.log("Error playing audio:", error);
+        });
+      }
+
+      function handleButton() {
+        showBirthdayMessage();
+        playSong();
+      }
+    </script>
+  </body>
+</html>
